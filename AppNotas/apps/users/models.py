@@ -4,9 +4,8 @@ from django.contrib.auth.models import BaseUserManager, AbstractBaseUser, Permis
 # Create your models here.
 
 
-
 class UserManager(BaseUserManager):
-    def _create_user(self, username, email, name,last_name, password, is_staff, is_superuser, extra_fields):
+    def _create_user(self, username, email, name,last_name, password, is_staff, is_superuser, **extra_fields):
         user = self.model(
             username = username,
             email = email,
@@ -21,10 +20,10 @@ class UserManager(BaseUserManager):
         return user
 
     def create_user(self, username, email, name,last_name, password=None, **extra_fields):
-        return self._create_user(username, email, name,last_name, password, False, False, extra_fields)
+        return self._create_user(username, email, name,last_name, password, False, False, **extra_fields)
 
     def create_superuser(self, username, email, name,last_name, password=None, **extra_fields):
-        return self._create_user(username, email, name,last_name, password, True, True, extra_fields)
+        return self._create_user(username, email, name,last_name, password, True, True, **extra_fields)
 
 class User (AbstractBaseUser,PermissionsMixin):
 
@@ -36,10 +35,14 @@ class User (AbstractBaseUser,PermissionsMixin):
     password=models.CharField(max_length=30, verbose_name='Contraseña')
     email=models.EmailField(unique=True, verbose_name='Email')
     is_staff= models.BooleanField(default=False)
+    object=UserManager()
 
     class Meta:
             verbose_name = 'Usuario'
             verbose_name_plural = 'Usuarios'
+
+    USERNAME_FIELD = 'username'
+    REQUIRED_FIELDS = ['email','name','last_name']
 
     def __str__(self):
             return f'{self.name} {self.last_name}'

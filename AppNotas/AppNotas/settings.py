@@ -53,6 +53,7 @@ THIRD_APPS = [
 INSTALLED_APPS = BASE_APPS + LOCAL_APPS + THIRD_APPS
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -81,6 +82,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'AppNotas.wsgi.application'
+
+AUTH_USER_MODEL= 'users.User'
 
 
 # Database
@@ -132,6 +135,21 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+# Cors
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:8080",
+    "http://localhost:3000",
+    "http://localhost:3001",
+    "http://localhost:3002"
+]
+
+CORS_ORIGIN_WHITELIST = [
+     "http://localhost:8080",
+     "http://localhost:3000",
+     "http://localhost:3001",
+     "http://localhost:3002"
+]
 
 
 # Static files (CSS, JavaScript, Images)

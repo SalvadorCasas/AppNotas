@@ -1,5 +1,3 @@
-#from django.shortcuts import render
-
 #REST IMPORTS
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -12,7 +10,7 @@ from apps.users.models import User
 from apps.users.serializer import UserSerializers
 
 #HELPERS
-from apps.users.user_exist import userExist
+from apps.users.helpers.user_exist import userExist
 # Create your views here.
 
 class UserApiView(APIView):
