@@ -2,6 +2,7 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
+from apps.notes.serializer import NotesSerializers
 
 #MODEL IMPORTS
 from apps.users.models import User as UserModel
@@ -15,7 +16,7 @@ from apps.users.helpers.user_exist import userExist
 class UserListApiView(APIView):
 
   def get(self, request):
-        """"Retorna un listado con todos los heroes almacenados en la base"""
+        """"Retorna un listado con todos los usuarios almacenados en la base"""
         print(f'REQUEST --> {request.method}')
         users = UserModel.objects.all()
         user_serializer = UserSerializers(users, many=True)
@@ -50,7 +51,7 @@ class UserCreateApiView(APIView):
 class UserDetailApiView(APIView):
 
   def get(self,request,pk):
-    """Nos devuelve mas informacion de un heroe en particular"""
+    """Nos devuelve mas informacion de un usuario en particular"""
     try:
           user = UserModel.objects.get(pk = pk)
 

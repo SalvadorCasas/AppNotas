@@ -18,9 +18,7 @@ class Migration(migrations.Migration):
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='Número de referencia')),
                 ('title', models.CharField(default = None, max_length=50, verbose_name='Título')),
                 ('description', models.CharField(default = None, max_length=200, verbose_name='Descripción')),
-                ('state', models.CharField(default = None, max_length=50, verbose_name='Estado')),
                 ('creation_date', models.DateField(auto_now_add=True, default=timezone.now, verbose_name='Fecha de creación')),
-                ('deadline', models.DateField(auto_now_add=True, default=timezone.now, verbose_name='Fecha de finalización')),
             ],
         ),
     ]

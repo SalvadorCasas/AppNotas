@@ -6,5 +6,5 @@ Aplicación web que esta destinada a la toma de notas rapidas por parte de los u
 - Django
 - djangorestframework
 - mysqlclient
-- 
+- django-cors-headers
  

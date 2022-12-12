@@ -1,23 +1,22 @@
 from django.db import models
 from apps.users.models import User
-import random
+from django.utils.timezone import now
 
 # Create your models here.
+
 
 class Notes (models.Model):
 
     #atributos
     user = models.ForeignKey(
-        User, default = None,
-        on_delete=models.CASCADE
+        User, null = True,
+        on_delete=models.CASCADE,
+        blank=True,
+        related_name="content_%(class)s"
     )
     title=models.CharField(max_length=50, verbose_name='Título')
     description=models.CharField(max_length=200, verbose_name='Descripción')
-    state=models.CharField(max_length=50, verbose_name='Estado')
-    creation_date=models.DateField(verbose_name='Fecha de creación')
-    deadline=models.DateField(verbose_name='Fecha de finalización')
-
-
+    creation_date=models.DateTimeField(auto_now_add=True, blank=True, verbose_name='Fecha de creación')
     
     class Meta:
         verbose_name = 'Nota'
