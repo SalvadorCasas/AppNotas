@@ -25,17 +25,19 @@ class UserManager(BaseUserManager):
     def create_superuser(self, username, email, name,last_name, password=None, **extra_fields):
         return self._create_user(username, email, name,last_name, password, True, True, **extra_fields)
 
-class User (AbstractBaseUser,PermissionsMixin):
+class User(AbstractBaseUser,PermissionsMixin):
 
     # atributos 
 
-    name=models.CharField(max_length=50, verbose_name='Nombre')
-    last_name=models.CharField(max_length=50, verbose_name='Apellido')
-    username=models.CharField(max_length=50, unique=True, verbose_name='Nombre de usuario')
-    password=models.CharField(max_length=30, verbose_name='Contraseña')
-    email=models.EmailField(unique=True, verbose_name='Email')
-    is_staff= models.BooleanField(default=False)
-    object=UserManager()
+    username = models.CharField(default = None, max_length = 255, unique = True)
+    email = models.EmailField(verbose_name='Correo Electrónico',max_length = 255, unique = True, default= None)
+    name = models.CharField(verbose_name='Nombres', max_length = 255, blank = True, null = True)
+    is_superuser = models.BooleanField(default=False, help_text='Designates that this user has all permissions without explicitly assigning them.', verbose_name='superuser status')
+    last_name = models.CharField(blank=True, max_length=255, null=True, verbose_name='Apellidos')
+    is_staff = models.BooleanField(default=False) 
+    objects = UserManager()
+                 
+
 
     class Meta:
             verbose_name = 'Usuario'
@@ -44,6 +46,6 @@ class User (AbstractBaseUser,PermissionsMixin):
     USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = ['email','name','last_name']
 
-    def __str__(self):
-            return f'{self.name} {self.last_name}'
+    def __unicode__(self):
+            return self.username
     

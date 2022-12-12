@@ -3,14 +3,16 @@ from django.urls import path
 
 #VIEWS
 from apps.users.views import (
-    UserApiView,
+    UserListApiView,
+    UserCreateApiView,
     UserDetailApiView,
 )
 
 #URLS
 urlpatterns = [
-  path('user/', UserApiView.as_view(), name='user'),
+  path('user-list/', UserListApiView.as_view(), name='user-list'),
   path('user-detail/<int:pk>/', UserDetailApiView.as_view(), name='user-detail'),
+  path('user-create/', UserCreateApiView.as_view(), name='user-create'),
 ]
 
 

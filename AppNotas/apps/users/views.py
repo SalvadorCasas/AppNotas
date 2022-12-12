@@ -4,17 +4,29 @@ from rest_framework.response import Response
 from rest_framework import status
 
 #MODEL IMPORTS
-from apps.users.models import User
+from apps.users.models import User as UserModel
 
 #SERIALIZERS IMPORTS
 from apps.users.serializer import UserSerializers
-
 #HELPERS
 from apps.users.helpers.user_exist import userExist
 # Create your views here.
 
-class UserApiView(APIView):
+class UserListApiView(APIView):
 
+  def get(self, request):
+        """"Retorna un listado con todos los heroes almacenados en la base"""
+        print(f'REQUEST --> {request.method}')
+        users = UserModel.objects.all()
+        user_serializer = UserSerializers(users, many=True)
+        return Response(
+            data = user_serializer.data,
+            status = status.HTTP_200_OK
+        )
+
+
+class UserCreateApiView(APIView):
+    
   def post(self, request):
     '''Crea un nuevo registro/usuario'''
     serializer = UserSerializers(data=request.data)
@@ -40,7 +52,7 @@ class UserDetailApiView(APIView):
   def get(self,request,pk):
     """Nos devuelve mas informacion de un heroe en particular"""
     try:
-          user = User.objects.get(pk = pk)
+          user = UserModel.objects.get(pk = pk)
 
           user_serializer = UserSerializers(user)
 
@@ -60,8 +72,10 @@ class UserDetailApiView(APIView):
   def delete(self,request,pk):
         """Elimina un registro"""
         user = userExist(pk)
+        userdel = UserModel.objects.get(pk=pk)
+
         if user:
-            user.delete()
+            userdel.delete()
             data = {
                 "El usuario fue eliminado de forma correcta"
             }
@@ -69,5 +83,9 @@ class UserDetailApiView(APIView):
                         data = data,
                         status = status.HTTP_200_OK
             )
+        return Response(
+            data=UserSerializers.errors,
+            status = status.HTTP_400_BAD_REQUEST
+        )
 
 
