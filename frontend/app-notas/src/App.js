@@ -1,6 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
 
+import Usuario from './components/usuario/Usuario';
+import Nota from './components/nota/Nota';
+
 function App() {
   return (
     <div className="App">
@@ -17,6 +20,8 @@ function App() {
         >
           Learn React
         </a>
+        <Usuario></Usuario>
+        <Nota></Nota>
       </header>
     </div>
   );
