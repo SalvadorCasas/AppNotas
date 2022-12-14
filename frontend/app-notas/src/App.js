@@ -1,8 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 
-import Usuario from './components/usuario/Usuario';
-import Nota from './components/nota/Nota';
+import UserRegister from './components/usuario/UserRegister';
+//import Notes from './components/Notes';
 
 function App() {
   return (
@@ -10,18 +10,12 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          App Notas
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <Usuario></Usuario>
-        <Nota></Nota>
+        <div>
+        </div>
+        <UserRegister></UserRegister>
+        
       </header>
     </div>
   );

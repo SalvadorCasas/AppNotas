@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 
+from corsheaders.defaults import default_headers
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -25,7 +28,7 @@ SECRET_KEY = 'django-insecure-@5ccu5bbqd0o1u-r=x&9-)!rea%5i6-b+l8a^duc26nqa7rnxv
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -146,10 +149,19 @@ CORS_ALLOWED_ORIGINS = [
 
 CORS_ORIGIN_WHITELIST = [
      "http://localhost:8080",
+     "http://localhost:8000",
      "http://localhost:3000",
      "http://localhost:3001",
-     "http://localhost:3002"
+     "http://localhost:3002",
+     "http://192.168.100.48:3000",
 ]
+
+
+CORS_ORIGIN_ALLOW_ALL=True
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_HEADERS = default_headers + (
+'Access-Control-Allow-Origin',
+)
 
 
 # Static files (CSS, JavaScript, Images)
