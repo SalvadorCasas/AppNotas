@@ -10,8 +10,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 
-import App from './App';
-
 
 //Components
 import Navbar from './components/navbar/Navbar';
@@ -24,11 +22,9 @@ root.render(
     <Navbar>
     <div className="container">
         <Routes>
-          <Route exact path="/" element={<App/>} />
         </Routes>
       </div>
     </Navbar>
-    <App />
     </BrowserRouter>
 );
 

@@ -28,7 +28,7 @@ const Navbar=()=>{
                 </li>
                 <li className="nav-item">
                     <Link className="nav-link" to="/UserLogin">
-                    Inciar sesión
+                    Iniciar sesión
                     </Link>
                 </li>
                 </ul>
