@@ -1,7 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 
-import UserRegister from './components/usuario/UserRegister';
+
+//import UserRegister from './components/usuario/UserRegister';
 //import Notes from './components/Notes';
 
 function App() {
@@ -14,7 +15,6 @@ function App() {
         </p>
         <div>
         </div>
-        <UserRegister></UserRegister>
         
       </header>
     </div>
