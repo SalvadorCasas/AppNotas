@@ -19,3 +19,12 @@ class UserSerializers(serializers.ModelSerializer):
         user.save()
 
         return user
+
+class UserTokenSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = (
+            'id',
+            'username',
+            'email'
+        )

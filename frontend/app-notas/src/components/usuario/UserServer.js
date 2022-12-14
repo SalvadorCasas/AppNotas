@@ -9,7 +9,6 @@ export const listUser = async () => {
 
 // CREAR UN USUARIO
 export const registerUser = async (newUser) => {
-    console.log(newUser)
     return await fetch(API_URL,{
         method: 'POST',
         headers:{
