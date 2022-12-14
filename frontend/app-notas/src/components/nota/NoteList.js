@@ -1,15 +1,11 @@
 import React , { useEffect, useState } from 'react';
+
+//COMPONENTES
+import NoteItem from './NoteItem';
+
 import * as NoteServer from './NoteServer';
 
 const NoteList = () => {
-
-  /*const initialState = [
-    {
-      id:9,
-      title:"Primera Nota",
-      description:"Esta es la primera nota que creamos",
-    },
-  ];*/
 
 //CREA ATRIBUTO notes y METODO setNotes
   const [notes,setNotes]= useState([]);
@@ -29,9 +25,9 @@ const NoteList = () => {
   }, []);
 
   return (
-    <div>
+    <div className='row'>
       {notes.map((note) => (
-        <h2>{note.title}</h2>
+        <NoteItem key={note.id} note={note}></NoteItem>
       ))}
     </div>
   );
