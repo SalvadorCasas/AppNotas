@@ -1,11 +1,11 @@
 import React from 'react';
 
 const NoteItem=({ note })=>{
-  console.log(note);
   return (
     <div className="col-md-4">
       <div className="card card-body">
-        <h3 className='card-title'>{note.title}</h3>
+        <h3 className='card-title'>Título: {note.title}</h3>
+        <p className='card-text'>Descripción: {note.description}</p>
       </div>
     </div>
   )

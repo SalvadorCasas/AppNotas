@@ -36,9 +36,9 @@ const UserReg = () => {
         }
   };
 
-  const deleteUser = async (userId) => {
+  const getUser = async (userId) => {
     try {
-      const res = await UserServer.deleteUser(userId),
+      const res = await UserServer.getUser(userId),
       data = await res.json(),
       {name, fundation, website} = data.company;
       
@@ -50,7 +50,7 @@ const UserReg = () => {
 
   useEffect(()=>{
     if (params.id) {
-      deleteUser(params.id);
+      getUser(params.id);
     }
     // eslint-disable-next-line
   }, []);

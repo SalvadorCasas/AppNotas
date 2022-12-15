@@ -32,6 +32,11 @@ const Navbar=()=>{
                     </Link>
                 </li>
                 <li className="nav-item">
+                    <Link className="nav-link" to="/NoteCreate">
+                    Crear Nota
+                    </Link>
+                </li>
+                <li className="nav-item">
                     <Link className="nav-link" to="/NoteList">
                     Lista Notas
                     </Link>
