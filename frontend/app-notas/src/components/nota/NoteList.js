@@ -3,6 +3,7 @@ import React , { useEffect, useState } from 'react';
 //COMPONENTES
 import NoteItem from './NoteItem';
 
+
 import * as NoteServer from './NoteServer';
 
 const NoteList = () => {
@@ -25,10 +26,19 @@ const NoteList = () => {
   }, []);
 
   return (
-    <div className='row'>
-      {notes.map((note) => (
-        <NoteItem key={note.id} note={note}></NoteItem>
-      ))}
+    <div className="row my-3">
+      <h3 > Tus Notas </h3>
+      <div className="container">
+    {
+      ( notes && notes.length > 0 )
+      ?
+      notes.map((note) => {
+        return <NoteItem key={note.id} note={note} />
+    })
+    : 
+    null
+    }
+    </div>
     </div>
   );
 };
