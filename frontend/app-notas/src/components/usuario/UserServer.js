@@ -11,8 +11,6 @@ export const registerUser = async (newUser) => {
         headers:{
         'Content-Type': 'application/json'
         },
-        mode: 'no-cors', //
-        // headers: [],
         body: JSON.stringify({
             "username": String(newUser.nombreusuario).trim(),
             "name": String(newUser.nombre).trim(),
@@ -30,7 +28,6 @@ export const deleteUser = async (userId) => {
     headers: {
         'Content-type': 'application/json'
     },
-    mode: 'no-cors',
     })
 };
 

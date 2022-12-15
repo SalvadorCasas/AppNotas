@@ -15,8 +15,6 @@ export const createNote = async (newNote) => {
       headers:{
       'Content-Type': 'application/json'
       },
-      mode: 'no-cors', //
-      // headers: [],
       body: JSON.stringify({
           "title": String(newNote.titulo).trim(),
           "description": String(newNote.descripcion).trim(), 
@@ -31,7 +29,6 @@ export const deleteNote = async (noteId) => {
   headers: {
       'Content-type': 'application/json'
   },
-  mode: 'no-cors',
   })
 };
 
