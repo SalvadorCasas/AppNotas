@@ -16,6 +16,7 @@ import Navbar from './components/navbar/Navbar';
 import NoteList from './components/nota/NoteList';
 import LoginForm from './components/login/Login';
 import Home from './components/home';
+import UserReg from './components/usuario/UserRegister';
 
 
 
@@ -28,6 +29,7 @@ root.render(
           <Route path="/" element={<Home/>}/>
           <Route path="/login" element={<LoginForm/>}/>
           <Route path="/NoteList" element={<NoteList/>}/>
+          <Route path="/UserRegister" element={<UserReg/>}/>
         </Routes>
     </div>
     </BrowserRouter>

@@ -1,15 +1,12 @@
 // VAMOS A CONECTARNOS A UNA API
 //para conectarse con la api del Backend
-const API_URL = 'http://127.0.0.1:8000/user/user/' 
+const API_URL_1 = 'http://127.0.0.1:8000/user/user-create/';
+const API_URL_2 = 'http://127.0.0.1:8000/user/user-detail/<int:pk>/';
 
-// return "listado de usuarios";
-export const listUser = async () => {
-    return await fetch(API_URL);
-};
 
 // CREAR UN USUARIO
 export const registerUser = async (newUser) => {
-    return await fetch(API_URL,{
+    return await fetch(API_URL_1,{
         method: 'POST',
         headers:{
         'Content-Type': 'application/json'
@@ -26,8 +23,13 @@ export const registerUser = async (newUser) => {
     });
 };
 
-
-// TRAE UN USUARIO
-export const getUser = async (userId) => {
-    return await fetch(`${API_URL}${userId}`);
+// ELIMINA UN USUARIO
+export const deleteUser = async (userId) => {
+    return await fetch(`${API_URL_2}${userId}`, {
+    method: "DELETE",
+    headers: {
+        'Content-type': 'application/json'
+    },
+    mode: 'no-cors',
+    })
 };

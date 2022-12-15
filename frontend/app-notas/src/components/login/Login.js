@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate , useParams } from "react-router-dom";
 
 // COMPONENTES
-import * as LoginServer from './LoginServer.js'; 
+import * as LoginServer from './LoginServer.js';
 
 const LoginForm = () =>{
     const history = useNavigate();
@@ -14,7 +14,6 @@ const LoginForm = () =>{
     // GUARDA LA INFO DE LOS INPUTS
     const handleInputChange = (e) => {
         setIngreso({ ...ingreso, [e.target.name]: e.target.value });
-        console.log(ingreso);
     };
 
     useEffect(() => {
@@ -30,7 +29,6 @@ const LoginForm = () =>{
           if (!params.username) {
             console.log("RES: ", ingreso);
             res = await LoginServer.loginUsuario(ingreso);
-             console.log("RES: ", res);
             const data = await res.json();
             console.log("Data: ",data);
             if (data.username !== '') {
