@@ -5,7 +5,7 @@ import { useNavigate , useParams } from "react-router-dom";
 // COMPONENTES
 import * as UserServer from './UserServer.js';
 
-const UserReg = () => {
+const UserForm = () => {
   const history = useNavigate();
   const params = useParams();
 
@@ -58,7 +58,7 @@ const UserReg = () => {
   return(
     <div className='containerPrincipal'>
           <div className='form-group'>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} action="/" method="post">
               <div className="mb-6 my-2">
                 <i className="fa fa-user"></i>
                 <input type='text' className='form-control' name="username" id="username" placeholder="Usuario" value={user.username} onChange={handleInputChange} required="required"/>  
@@ -73,7 +73,7 @@ const UserReg = () => {
                 <input type="email" className="form-control" name="email" id="email" value={user.email} onChange={handleInputChange} required="required" placeholder="Email"/>
               </div>
               <div className="mb-6 my-2">
-                <input type="password" name="password" id="password" value={user.password} onChange={handleInputChange} className="form-control" required="required" placeholder='Contraseña'/>    
+                <input type="password" name="password" id="password" value={user.password} onChange={handleInputChange} className="form-control" required="required" autoComplete="current-password" placeholder='Contraseña'/>    
               </div>
               <br />
               <div className="mb-6 my-2">
@@ -85,4 +85,4 @@ const UserReg = () => {
   ) 
 }
 
-export default UserReg;
+export default UserForm;

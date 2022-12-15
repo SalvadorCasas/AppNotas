@@ -16,7 +16,7 @@ import Navbar from './components/navbar/Navbar';
 import NoteList from './components/nota/NoteList';
 import LoginForm from './components/login/Login';
 import Home from './components/home';
-import UserReg from './components/usuario/UserRegister';
+import UserForm from './components/usuario/UserForm';
 import NoteForm from './components/nota/NoteForm';
 
 
@@ -30,7 +30,7 @@ root.render(
           <Route path="/" element={<Home/>}/>
           <Route path="/login" element={<LoginForm/>}/>
           <Route path="/NoteList" element={<NoteList/>}/>
-          <Route path="/UserRegister" element={<UserReg/>}/>
+          <Route path="/UserRegister" element={<UserForm/>}/>
           <Route path="/NoteCreate" element={<NoteForm/>}/>
         </Routes>
     </div>
